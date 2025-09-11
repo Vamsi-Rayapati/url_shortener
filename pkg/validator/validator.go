@@ -9,7 +9,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"
 	"github.com/google/uuid"
-	"github.com/smartbot/account/pkg/errors"
+	"github.com/url_shortener/pkg/errors"
 )
 
 func GetMessageByTag(err validator.FieldError) string {

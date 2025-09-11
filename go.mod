@@ -1,4 +1,4 @@
-module github.com/smartbot/account
+module github.com/url_shortener
 
 go 1.23.5
 

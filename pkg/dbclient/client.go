@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/smartbot/account/pkg/config"
+	"github.com/url_shortener/pkg/config"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )

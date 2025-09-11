@@ -5,10 +5,10 @@ import (
 
 	"log"
 
-	"github.com/smartbot/account/api"
-	"github.com/smartbot/account/database"
-	"github.com/smartbot/account/pkg/config"
-	"github.com/smartbot/account/pkg/dbclient"
+	"github.com/url_shortener/api"
+	// "github.com/url_shortener/database"
+	"github.com/url_shortener/pkg/config"
+	"github.com/url_shortener/pkg/dbclient"
 )
 
 func main() {
@@ -22,7 +22,9 @@ func main() {
 		return
 	}
 
-	err = db.AutoMigrate(&database.User{})
+	log.Printf("Connected to database: %v", db)
+
+	// err = db.AutoMigrate(&database.User{})
 
 	if err != nil {
 		log.Fatalf("Migration failed: %v", err)

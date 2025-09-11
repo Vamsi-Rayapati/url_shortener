@@ -1,11 +1,11 @@
-package user
+package shorten
 
 import "github.com/gin-gonic/gin"
 
 func RegisterRoutes(route *gin.RouterGroup) {
-	userService := UserService{}
-	userController := UserController{service: userService}
+	ShortenService := ShortenService{}
+	ShortenController := ShortenController{service: ShortenService}
 
-	route.PATCH("/users/:id", userController.UpdateUser)
+	route.PATCH("/users/:id", ShortenController.CreateShortURL)
 
 }

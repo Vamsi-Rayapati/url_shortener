@@ -1,4 +1,4 @@
-FROM golang:1.24 AS base
+FROM golang:1.25 AS base
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -9,7 +9,7 @@ RUN go mod download
 
 COPY . .
 
-EXPOSE 4001
+EXPOSE 4000
 
 FROM base AS dev
 RUN go install github.com/air-verse/air@latest
