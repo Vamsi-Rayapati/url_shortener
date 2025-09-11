@@ -18,7 +18,7 @@
 
 ### HLD
 
-![[docs/images/Diagram 1.svg]]
+![System Design HLD](docs/images/Diagram%201.svg)
 
 
 ### Database Design
