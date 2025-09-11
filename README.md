@@ -1,5 +1,5 @@
 
-### Requirements Gathering
+### Requirements
 
 ```
 ### Functional Requirements
@@ -9,7 +9,7 @@
 4. Expiry
 
 ### Non Functional Requirements
-1. High Availability![[Diagram 1.svg]]
+1. High Availability
 2. Low Latency
 3. Scalability
 4. Durability
@@ -18,7 +18,7 @@
 
 ### HLD
 
-![[Diagram 1.svg]]
+![[docs/images/Diagram 1.svg]]
 
 
 ### Database Design
