@@ -45,7 +45,7 @@
 ### API Design
 
 ```go title="URL Shortening"
-Endpoint: /shorten
+Endpoint: /api/v1/shorten
 Method: POST
 Request:
 {

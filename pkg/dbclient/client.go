@@ -22,7 +22,7 @@ func Connect() (*gorm.DB, error) {
 		"account",
 	)
 
-	DB, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	DB, err = gorm.Open(mysql.Open(dsn), &gorm.Config{TranslateError: true})
 	if err != nil {
 		log.Fatalf("Failed to connect to database: %v", err)
 		return nil, err

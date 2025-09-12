@@ -6,7 +6,7 @@ import (
 	"log"
 
 	"github.com/url_shortener/api"
-	// "github.com/url_shortener/database"
+	"github.com/url_shortener/database"
 	"github.com/url_shortener/pkg/config"
 	"github.com/url_shortener/pkg/dbclient"
 )
@@ -22,9 +22,7 @@ func main() {
 		return
 	}
 
-	log.Printf("Connected to database: %v", db)
-
-	// err = db.AutoMigrate(&database.User{})
+	err = db.AutoMigrate(&database.UrlMapping{})
 
 	if err != nil {
 		log.Fatalf("Migration failed: %v", err)
