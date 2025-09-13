@@ -1,7 +1,7 @@
 
-### Requirements
+## Requirements
 
-```
+
 ### Functional Requirements
 1. Generate and Store Shorten Url
 2. Configure Sorten Url Alias
@@ -14,14 +14,14 @@
 3. Scalability
 4. Durability
 5. Security
-```
 
-### HLD
+
+## HLD
 
 ![System Design HLD](docs/images/Diagram%201.svg)
 
 
-### Database Design
+## Database Design
 1. No SQL (Dynamo DB, Casanda )
 2. Schema
 
@@ -42,7 +42,7 @@
 | name     | varchar |
 | password | varchar |
 
-### API Design
+## API Design
 
 ```go title="URL Shortening"
 Endpoint: /api/v1/shorten
