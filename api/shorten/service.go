@@ -28,23 +28,33 @@ func (sc *ShortenService) CreateShortURL(req ShortenRequest) (*ShortenResponse, 
 	}
 
 	if req.CustomAlias != "" {
-		mapping.ShortKey = req.CustomAlias
+		mapping.ShortKey = "_" + req.CustomAlias
 	}
-	result := db.Create(&mapping)
+
+	tx := db.Begin()
+	result := tx.Create(&mapping)
 
 	if result.Error != nil {
-		log.Println("Failed", result.Error)
+		tx.Rollback()
+
 		if errors.Is(result.Error, gorm.ErrDuplicatedKey) {
 			return nil, apiError.ConfilctError("Specified Alias already exist")
 		}
 		return nil, apiError.InternalServerError("Failed to create short url")
 	}
 
-	base62Code := base62.Encode(int64(mapping.ID))
-
 	if req.CustomAlias == "" {
-		db.Model(&mapping).Update("short_key", base62Code)
+		base62Code := base62.Encode(int64(mapping.ID))
+		result := tx.Model(&mapping).Update("short_key", base62Code)
+
+		if result.Error != nil {
+			tx.Rollback()
+			return nil, apiError.InternalServerError("Failed to create short url")
+		}
+
 	}
+
+	tx.Commit()
 
 	return &ShortenResponse{
 		ShortURL: mapping.ShortKey,
